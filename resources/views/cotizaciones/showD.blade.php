@@ -69,7 +69,7 @@
                                         <th>Fecha</th>
                                         <th>Itinerario</th>
                                         <th>Equipaje</th>
-                                        <th>Eliminar</th>
+                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>

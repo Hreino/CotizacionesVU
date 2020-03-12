@@ -42,13 +42,39 @@ class ClienteController extends Controller
     {
         $cliente = new Cliente();
         $cliente->nombres = $request->input('nombres');
-        $cliente->fechaNac = $request->input('fechaNac');
-        $cliente->direccion = $request->input('direccion');
-        $cliente->email = $request->input('email');
+        if ($request->input('fechaNac') == '') {
+            $cliente->fechaNac = '2000-01-01';
+        }else {
+            $cliente->fechaNac = $request->input('fechaNac');
+        }
+
+        if($request->input('direccion')==''){
+            $cliente->direccion = '2a Av. Norte, #2-4, Ahuachapan';
+        }else{
+            $cliente->direccion = $request->input('direccion');
+        }
+
+        if ($request->input('email')=='') {
+            $cliente->destino = 'viajero@gmail.com';
+        } else {
+            $cliente->email = $request->input('email');
+        }
+        
+        
 
         $cliente->destino = $request->input('destino');
-        $cliente->aerolinea = $request->input('aerolinea');
-        $cliente->telefono = $request->input('telefono');
+        if ($request->input('aerolinea')=='') {
+            $cliente->aerolinea = 'AV';
+        }else {
+            $cliente->aerolinea = $request->input('aerolinea');
+        }
+
+        if ($request->input('telefono')=='') {
+            $cliente->telefono = '000-0000-0000';
+        }else {
+            $cliente->telefono = $request->input('telefono');
+        }
+        
         $cliente->save();
         return redirect()->action('ClienteController@index')->with('success','Cliente agregado Exitosamente');
     }
@@ -123,12 +149,38 @@ class ClienteController extends Controller
     public function fromCotizacion(Request $request){
         $cliente = new Cliente();
         $cliente->nombres = $request->input('nombres');
-        $cliente->fechaNac = $request->input('fechaNac');
-        $cliente->direccion = $request->input('direccion');
-        $cliente->email = $request->input('email');
+        if ($request->input('fechaNac') == '') {
+            $cliente->fechaNac = '2000-01-01';
+        }else {
+            $cliente->fechaNac = $request->input('fechaNac');
+        }
+        
+        if($request->input('direccion')==''){
+            $cliente->direccion = '2a Av. Norte, #2-4, Ahuachapan';
+        }else{
+            $cliente->direccion = $request->input('direccion');
+        }        
+        
+        if ($request->input('email')=='') {
+            $cliente->destino = 'viajero@gmail.com';
+        } else {
+            $cliente->email = $request->input('email');
+        }
+
         $cliente->destino = $request->input('destino');
-        $cliente->aerolinea = $request->input('aerolinea');
-        $cliente->telefono = $request->input('telefono');
+
+        if ($request->input('aerolinea')=='') {
+            $cliente->aerolinea = 'AV';
+        } else {
+            $cliente->aerolinea = $request->input('aerolinea');
+        }
+
+        if ($request->input('telefono')=='') {
+            $cliente->telefono = '000-0000-0000';
+        }else {
+            $cliente->telefono = $request->input('telefono');
+        }
+
         $cliente->save();
         return redirect()->action('CotizacionController@create')->with('success','Cliente agregado exitosamente');
     }

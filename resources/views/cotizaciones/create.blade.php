@@ -40,9 +40,12 @@
                             <select name="proveedor" id="proveedor" class="form-control">
                                 <option value="---">---</option>
                                 <option value="AVILES">AVILES</option>
+                                <option value="SABRE-AGENCIA">SABRE-AGENCIA</option>
+                                <option value="AMADEUS-AGENCIA">AMADEUS-AGENCIA</option>
+                                <option value="VOLARIS">VOLARIS</option>
                                 <option value="PANAMEX">PANAMEX</option>
                                 <option value="ALL AMERICAN">ALL AMERICAN</option>
-                                <option value="OTRO">OTRO</option>
+                                
                             </select>
                         </div>
                     </div>
@@ -53,9 +56,11 @@
                                 <option value="---">---</option>
                                 <option value="Facebook Messenger">Facebook Messenger</option>
                                 <option value="WhatsApp Agencia">WhatsApp Agencia</option>
+                                <option value="Visita Agencia">Visita Agencia</option>
                                 <option value="WhatsApp Personal">WhatsApp Personal</option>
-                                <option value="Otro">Otro</option>
-
+                                <option value="Llamada telefónica">Llamada telefónica</option>
+                                <option value="Correo Electrónico">Correo Electrónico</option>
+                                <option value="Instagram">Instagram</option>
                             </select>
                         </div>
                     </div>
@@ -154,16 +159,6 @@
                 
                                     <div class="col-md-6">
                                         <input type="date" name="fechaNac" id="fechaNac" class="form-control">
-                                        {{-- <input id="nombres" 
-                                        type="text" 
-                                        class="form-control" 
-                                        name="nombres" value="{{ old('nombres') }}" required autofocus> --}}
-                
-                                        @if ($errors->has('nombres'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('nombres') }}</strong>
-                                            </span>
-                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -173,7 +168,7 @@
                                         <input id="direccion" 
                                         type="text" 
                                         class="form-control" 
-                                        name="direccion" value="{{ old('direccion') }}" required autofocus>
+                                        name="direccion" value="{{ old('direccion') }}">
                 
                                         @if ($errors->has('direccion'))
                                             <span class="invalid-feedback" role="alert">
@@ -189,7 +184,7 @@
                                         <input id="email" 
                                         type="email" 
                                         class="form-control" 
-                                        name="email" value="{{ old('email') }}" required autofocus>
+                                        name="email" value="{{ old('email') }}">
                 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback" role="alert">
@@ -217,14 +212,12 @@
                                 <div class="form-group row">
                                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefono:</label>
                                     <div class="col-md-6">
-                                        <input type="text" name="telefono" id="telefono" class="form-control">
+                                        <input type="text" name="telefono" id="telefono" class="phone form-control" value="503">
                                     </div>
                                 </div>
-                                
-                
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary" id="CrearClienteC">
                                             Crear Cliente
                                         </button>
                                     </div>
@@ -234,6 +227,16 @@
                 </div>
             </div>
         </div>
+
+<script>
+    $().ready(function(){
+        // $('#CrearClienteC').click(alerta);
+
+        // function alerta() {
+        //     alert('clic en modal')
+        // }
+    });
+</script>
 
 
 @endsection

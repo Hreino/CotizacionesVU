@@ -31,7 +31,11 @@ class CotizacionController extends Controller
     // Retorna Cotizaciones del Usuario en Sesion
     public function misCotizacionesP(){
         $userID = Auth::user()->id;
-        $cotizaciones = Cotizacion::where('id_user','=',$userID)->orderBy('id', 'desc')->get();
+        $cotizaciones = Cotizacion::where([
+            ['id_user','=',$userID],
+            ['status','<>','Finalizado'],
+            ['status','<>','Vendido']
+            ])->orderBy('id', 'desc')->get();
         return view('cotizaciones.misCotizacionesP', ['cotizaciones'=>$cotizaciones]);
     }
     // Retorna Cotizaciones finalizadas sin compra  
@@ -249,6 +253,19 @@ class CotizacionController extends Controller
             return back()->with('success','Cotizacion Eliminada');
         } catch (\Throwable $th) {
             return back();
+        }
+    }
+
+    public function editCotizacion($id, Request $request){
+        try {
+            $detallesCotizacion = DetallesCotizacion::find($id);
+            $detallesCotizacion->detalles = $request->input('detalles');
+            $detallesCotizacion->equipaje = $request->input('equipaje');
+            $detallesCotizacion->update();
+            return back()->with('success','Itinerario modificado exitosamente');
+
+        } catch (\Throwable $th) {
+            return back()->with('danger','Itinerario no modificado');
         }
     }
     public function destroy(Cotizacion $cotizacion)

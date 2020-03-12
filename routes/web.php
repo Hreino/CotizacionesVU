@@ -43,4 +43,5 @@ Route::delete('cotizaciones/destroyIti/{id}','CotizacionController@destroyIti')-
 Route::put('cotizaciones/finalizar/{id}','CotizacionController@updateCotizacion')->name('cotizaciones.updateStatus');
 Route::put('cotizaciones/vendido/{id}','CotizacionController@vendido')->name('cotizaciones.vendido');
 Route::delete('cotizaciones/delete/{id}','CotizacionController@deleteCotizacion')->name('cotizaciones.deleteCotizacion');
+Route::put('cotizaciones/edit/{id}','CotizacionController@editCotizacion')->name('cotizaciones.edit');
 });

@@ -116,11 +116,14 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="equipaje" class="col-md-4 col-form-label text-md-right">Incluye Equipaje de Carga?</label>
+                            <label for="equipaje" class="col-md-4 col-form-label text-md-right">¿Incluye Equipaje de Carga?</label>
                             <div class="col-md-5">
                                 <select name="equipaje" id="equipaje" class="form-control">
                                     <option value="---">---</option>
                                     <option value="Si Incluye">Si Incluye</option>
+                                    <option value="Incluye equipaje (solo ida)">Incluye equipaje (solo ida)</option>
+                                    <option value="Incluye equipaje (solo retorno)">Incluye equipaje (solo retorno)</option>
+                                    <option value="Solo Objeto Personal">Solo Objeto Personal</option>
                                     <option value="No Incluye">No Incluye</option>
                                     <option value="No Aplica">No Aplica</option>
                                 </select>
@@ -139,7 +142,7 @@
                                         <th>Fecha</th>
                                         <th>Itinerario</th>
                                         <th>Equipaje</th>
-                                        <th>Eliminar</th>
+                                        <th>OPCIONES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -158,10 +161,65 @@
                                                     <form action="{{route('cotizaciones.destroyIti',[$item->id])}}" method="post">
                                                         {{csrf_field()}}
                                                         <input name="_method" type="hidden" value="DELETE">
-                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-success" type="button"data-toggle="modal" data-target="#modificarItinerario{{$item->id}}">
+                                                                Editar
+                                                            </button>
+                                                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                        </div>
+                                                        
                                                     </form>
                                                 </td>
                                             </tr>  
+
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modificarItinerario{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLongTitle">Editando Itinerario:</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="{{route('cotizaciones.edit', $item->id)}}" method="POST" >
+                                                            {{csrf_field()}}
+                                                            <input name="_method" type="hidden" value="PUT">
+                                                            <div class="form-group row">
+                                                                {{-- <label for="detalles" class="col-md-4 col-form-label text-md-right">Itinerario</label> --}}
+                                                                Itinerario:
+                                                                <div class="col-md-5">
+                                                                    <textarea name="detalles" id="" cols="50" rows="6">{{$item->detalles}}</textarea>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label for="equipaje" class="col-md-4 col-form-label text-md-right">¿Incluye Equipaje de Carga?</label>
+                                                                <div class="col-md-5">
+                                                                    <select name="equipaje" id="equipaje" class="form-control">
+                                                                        <option value="---">---</option>
+                                                                        <option value="Si Incluye">Si Incluye</option>
+                                                                        <option value="Incluye equipaje (solo ida)">Incluye equipaje (solo ida)</option>
+                                                                        <option value="Incluye equipaje (solo retorno)">Incluye equipaje (solo retorno)</option>
+                                                                        <option value="Solo Objeto Personal">Solo Objeto Personal</option>
+                                                                        <option value="No Incluye">No Incluye</option>
+                                                                        <option value="No Aplica">No Aplica</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                                            </div>
+                                                        </form>
+                                                        
+                                                    </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         @endforeach
                                     @endif
                                 </tbody>

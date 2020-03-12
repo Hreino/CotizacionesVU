@@ -50,7 +50,7 @@
                     </div>
                     <div class="row">
                         <label for="telefono" class="label"><b>Telefono:</b></label>
-                        <input type="text" name="telefono" id="telefono" value="{{$cliente->telefono}}" class="form-control">
+                        <input type="text" name="telefono" id="telefono" value="{{$cliente->telefono}}" class="phone form-control">
                     </div>
                 </div>
                 

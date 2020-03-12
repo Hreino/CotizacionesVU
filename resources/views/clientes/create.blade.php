@@ -48,17 +48,17 @@
                         <input id="direccion" 
                         type="text" 
                         class="form-control" 
-                        name="direccion" value="{{ old('direccion') }}" required>
+                        name="direccion" value="{{ old('direccion') }}">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">E-mail:</label>
 
                     <div class="col-md-6">
-                        <input id="destino" 
+                        <input id="email" 
                         type="text" 
                         class="form-control" 
-                        name="email" value="{{ old('email') }}" required>
+                        name="email" value="{{ old('email') }}" >
                     </div>
                 </div>
                 <div class="form-group row">
@@ -70,7 +70,7 @@
                 <div class="form-group row">
                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefono:</label>
                     <div class="col-md-6">
-                        <input type="text" name="telefono" id="telefono" class="form-control">
+                        <input type="phone" name="telefono" id="telefono" class="phone form-control" value="503">
                     </div>
                 </div>
                 
@@ -87,4 +87,5 @@
     </div>
 </div>
     
+
 @endsection
