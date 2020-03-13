@@ -31,6 +31,8 @@ Route::put('clientes/update/{id}','ClienteController@update')->name('clientes.up
 Route::delete('clientes/delete/{id}','ClienteController@destroy')->name('clientes.destroy');
 Route::post('clientes/storefromcotizacion','ClienteController@fromCotizacion')->name('cliente.fromCotizacion');
 
+//Se hará modificaciones a las rutas de clientes
+
 //Rutas Cotizaciones
 Route::get('cotizaciones/index','CotizacionController@index')->name('cotizaciones.index');
 Route::get('cotizaciones/finalizadas','CotizacionController@finalizadas')->name('cotizaciones.finalizadas');
