@@ -53,9 +53,9 @@
                                 <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
                             </li>
                         @else
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{route('cotizaciones.misCotizacionesP')}}" class="navbar-brand">Mis Cotizaciones</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-brand" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Cotizaciones <span class="caret"></span>
