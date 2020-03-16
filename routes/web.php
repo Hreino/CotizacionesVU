@@ -20,7 +20,7 @@ Auth::routes();
 Route::middleware(['auth'])->group(function () {
    
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home','CotizacionController@misCotizacionesP')->name('misCotizacionesP');
+Route::get('/misCotizacionesP','CotizacionController@misCotizacionesP')->name('misCotizacionesP');
 
 //Rutas Cliente
 Route::get('clientes/index','ClienteController@index')->name('clientes.index');
