@@ -54,7 +54,7 @@
                             </li>
                         @else
                             <li class="nav-item">
-                                <a href="{{route('misCotizacionesP')}}" class="navbar-brand">Mis Cotizaciones</a>
+                                <a href="{{route('cotizaciones.misCotizacionesP')}}" class="navbar-brand">Mis Cotizaciones</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle navbar-brand" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
