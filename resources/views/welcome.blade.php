@@ -69,7 +69,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Mis Cotizaciones</a>
+                        <a href="{{route('cotizaciones.index')}}">Mis Cotizaciones</a>
                     @else
                         <a href="{{ route('login') }}">Iniciar sesión</a>
                         <a href="{{ route('register') }}">Registrarse</a>
