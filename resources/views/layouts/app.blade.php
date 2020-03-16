@@ -71,6 +71,8 @@
                                     <a class="dropdown-item" href="{{route('cotizaciones.finalizadas')}}">
                                         Finalizadas
                                     </a>
+                                    <a class="dropdown-item" href="{{route('cotizaciones.misCotizacionesP')}}" class="navbar-brand">Mis Cotizaciones</a>
+
                                 </div>
                             </li>
                             
