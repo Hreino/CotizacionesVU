@@ -79,6 +79,9 @@ class ClienteController extends Controller
         return redirect()->action('ClienteController@index')->with('success','Cliente agregado Exitosamente');
     }
 
+    // public function addPhotos(){
+    //     return view('clientes.addPhotos');
+    // }
     /**
      * Display the specified resource.
      *
